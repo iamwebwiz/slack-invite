@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/slack', [
+    'uses'=>'LaravelSlackController@slackPage',
+    'as'=>'slack'
+]);
+
+Route::post('/slack', [
+    'uses'=>'LaravelSlackController@sendSlackInvite',
+    'as'=>'slack'
+]);
