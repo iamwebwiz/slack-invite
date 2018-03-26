@@ -22,6 +22,7 @@ Route::post('/', function(Request $request) {
     $client = new Client;
     $validator = validator($request->all(), ['email' => 'required|string|email']);
     $email = $request->input('email');
+    $teamName = config('sitedata.slack_team_name');
 
     if ($validator->fails()) {
         return back()->with('error', 'You must enter your email to proceed!');
@@ -32,10 +33,10 @@ Route::post('/', function(Request $request) {
                 .time().'&email='.$email.'&token='.config('sitedata.slack_api_token')
                 .'&set_active=true&_attempts=1');
 
-            return redirect()->back()->with('success', "An invitation to your mail to join {env('SLACK_TEAM_NAME')} workspace.");
+            return redirect()->back()->with('success', "An invitation to your mail to join {$teamName} workspace.");
         } catch (\Exception $e) {
             abort(404);
             return back()->with('error', 'An error occured while sending invitation, please try again.');
         }
     }
-});
+})->name('send_invite');

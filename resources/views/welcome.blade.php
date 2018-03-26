@@ -5,12 +5,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>{{ config('sitedata.slack_team_name').' | '.config('sitedata.slack_team_description') }}</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <style>
             html, body {
                 background-color: #fff;
@@ -77,19 +78,28 @@
                 </div>
             @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    {{ config('app.name') }}
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+            <div class="container text-center">
+                @if (Session::has('error'))
+                    <div class="alert alert-danger">
+                        <span class="glyphicon glyphicon-caution"></span> {{ Session::get('error') }}
+                    </div>
+                @elseif (Session::has('success'))
+                    <div class="alert alert-success">
+                        <span class="glyphicon glyphicon-ok"></span> {{ Session::get('success') }}
+                    </div>
+                @endif
+                <form action="{{ route('send_invite') }}" method="post">
+                    {{ csrf_field() }}
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Email Address" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Submit" class="btn btn-primary">
+                    </div>
+                </form>
             </div>
         </div>
+
+        <script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>
