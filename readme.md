@@ -47,7 +47,7 @@ SLACK_TEAM_EMAIL="YOUR SLACK TEAM EMAIL"
 
 ## Contributions
 
-Your contributions on this app are welcome. Simply `Fork`, make your contribution and `Submit a Pull Request`. I will definitely appreciate it.
+Your contributions on this app are welcome. Simply `Fork` this repository, make your contribution and `Submit a Pull Request`. I will definitely appreciate it.
 
 ## Thanks?
 
