@@ -15,28 +15,9 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/invite');
 });
 
-Route::post('/', function(Request $request) {
-    $client = new Client;
-    $validator = validator($request->all(), ['email' => 'required|string|email']);
-    $email = $request->input('email');
-    $teamName = config('sitedata.slack_team_name');
+Route::get('/invite', 'SlackController@slackInvitePage');
 
-    if ($validator->fails()) {
-        return back()->with('error', 'You must enter your email to proceed!');
-    } else {
-        try {
-            $client->request('POST',
-                config('sitedata.slack_team_url').'/api/users.admin.invite?t='
-                .time().'&email='.$email.'&token='.config('sitedata.slack_api_token')
-                .'&set_active=true&_attempts=1');
-
-            return redirect()->back()->with('success', "An invitation to your mail to join {$teamName} workspace.");
-        } catch (\Exception $e) {
-            abort(404);
-            return back()->with('error', 'An error occured while sending invitation, please try again.');
-        }
-    }
-})->name('send_invite');
+Route::post('/invite', 'SlackController@sendInvitation')->name('send_invite');
