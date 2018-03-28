@@ -1,6 +1,5 @@
 <?php
 
-use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
 /*
@@ -19,5 +18,4 @@ Route::get('/', function () {
 });
 
 Route::get('/invite', 'SlackController@slackInvitePage');
-
 Route::post('/invite', 'SlackController@sendInvitation')->name('send_invite');

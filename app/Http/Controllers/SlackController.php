@@ -26,6 +26,7 @@ class SlackController extends Controller
     {
         $rules = ['email' => 'required|string|email'];
         $validator = validator($request->all(), $rules);
+        $email = $request->input('email');
 
         if ($validator->fails()) {
             return redirect()->back()->with('error', 'You must enter your email to proceed.');
@@ -38,7 +39,7 @@ class SlackController extends Controller
 
                 return redirect()->back()->with('success', "An invitation to your mail to join {$this->teamName} workspace.");
             } catch (Exception $e) {
-                abort(404);
+                // abort(404);
                 return redirect()->back()->with('error', 'An error occured while sending invitation, please try again.');
             }
         }
