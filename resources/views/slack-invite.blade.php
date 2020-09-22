@@ -9,29 +9,15 @@
         <title>{{ config('sitedata.slack_team_name').' | '.config('sitedata.slack_team_description') }}</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,400,600,700" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
 
         <style>
-            .site__bg {
-                background-image: url({{ asset('img/bg.jpg') }});
-                background-repeat: no-repeat;
-                margin: 0;
-                text-align: center;
-                padding-top: 150px;
-                color: #fff;
-            }
-
-            .submit__btn {
-                border-radius: 50px;
-                padding: 10px 40px;
-            }
-
-            .top__margin {
-                margin-top: 50px;
+            * {
+                font-family: Raleway, sans-serif;
             }
         </style>
     </head>
@@ -67,7 +53,6 @@
             </div>
         </div>
 
-        <script src="{{ asset('js/jquery.js') }}"></script>
-        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js" integrity="sha512-YSdqvJoZr83hj76AIVdOcvLWYMWzy6sJyIMic2aQz5kh2bPTd9dzY3NtdeEAzPp/PhgZqr4aJObB3ym/vsItMg==" crossorigin="anonymous"></script>
     </body>
 </html>
