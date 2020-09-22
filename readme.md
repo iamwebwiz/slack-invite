@@ -1,11 +1,14 @@
 # SLACK INVITE
+
 > This app helps you invite users to your Slack workspace automatically by simply submitting their mail.
 
 ## Requirements
+
 - [PHP](https://php.net) 5.6+
 - [Composer](https://getcomposer.org)
 
 ## Usage
+
 - Clone this repository by inputting the following into your Terminal (Command Line/Prompt on Windows):
 
 ```bash
@@ -27,7 +30,7 @@ composer install
 
 - Create a new file (.env) by using the `touch .env` command and copy the contents of **.env.example** to it, or you can copy the contents directly from the command line using `copy .env.example .env` (Command Prompt on Windows) or `cp .env.example .env` (Linux/UNIX Terminals).
 
-- Modify the contents of the **.env** file by adding the following lines anywhere you feel like, preferrably go to the last line of the file:
+- Modify the contents of the **.env** file by adding the following lines anywhere you feel like (you can also copy these variables from the `.env.example` file), preferrably go to the last line of the file:
 
 ```bash
 SLACK_TEAM_NAME="YOUR SLACK TEAM NAME"
@@ -43,7 +46,7 @@ SLACK_TEAM_EMAIL="YOUR SLACK TEAM EMAIL"
 
 - Generate your app key by running `php artisan key:generate` to make your app run.
 
-- Do a `php artisan serve` from your terminal to launch the app. Open your browser and go to `http://localhost:8000/` and you have the app sitting there.
+- Run `php artisan serve` from your terminal to launch the app. You can optionally add a `--port={portNumber}` flag to serve the app on a different port than 8000. Open your browser and go to `http://localhost:8000/` and you have the app sitting right there.
 
 ## Contributions
 
