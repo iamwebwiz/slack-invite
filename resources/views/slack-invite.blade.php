@@ -25,7 +25,7 @@
 
         <div class="container text-center">
 
-            <h2>Join &ldquo;{{ ucwords(strtolower(config('sitedata.slack_team_name'))) }}&rdquo; on Slack</h2>
+            <h2>Join {{ ucwords(strtolower($teamName)) }} on Slack</h2>
 
             <div class="row top__margin">
 

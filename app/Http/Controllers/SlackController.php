@@ -21,7 +21,7 @@ class SlackController extends Controller
 
     public function slackInvitePage()
     {
-        return view('slack-invite');
+        return view('slack-invite', ['teamName' => $this->teamName]);
     }
 
     public function sendInvitation(Request $request)
