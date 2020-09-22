@@ -9,7 +9,7 @@
         <title>{{ config('sitedata.slack_team_name').' | '.config('sitedata.slack_team_description') }}</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,400,600,700" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap" rel="stylesheet">
 
         <!-- Styles -->
         <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
@@ -17,7 +17,7 @@
 
         <style>
             * {
-                font-family: Raleway, sans-serif;
+                font-family: 'Kumbh Sans', sans-serif;
             }
         </style>
     </head>
@@ -33,12 +33,12 @@
                     @if (session('success'))
                         <div class="alert alert-success fade in">
                             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                            <i class="fa fa-check"></i> {{ session('success') }}
+                            <i class="fas fa-check"></i> {{ session('success') }}
                         </div>
                     @elseif (session('error'))
                         <div class="alert alert-danger fade in">
                             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                            <i class="fa fa-warning"></i> {{ session('error') }}
+                            <i class="fas fa-warning"></i> {{ session('error') }}
                         </div>
                     @endif
 
