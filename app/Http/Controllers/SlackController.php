@@ -32,18 +32,18 @@ class SlackController extends Controller
 
         if ($validation->fails()) {
             return back()->with('error', 'You must enter your email to proceed.');
-        } else {
-            try {
-                $url = config('sitedata.slack_team_url') . '/api/users.admin.invite?t=' . time() . "&email={$email}";
-                $url .= '&token=' . config('sitedata.slack_api.token') . '&set_active=true&_attempts=1';
+        }
 
-                $this->client->request('POST', $url);
+        try {
+            $url = config('sitedata.slack_team_url') . '/api/users.admin.invite?t=' . time() . "&email={$email}";
+            $url .= '&token=' . config('sitedata.slack_api.token') . '&set_active=true&_attempts=1';
 
-                return back()->with('success', "An invitation to your mail to join {$this->teamName} workspace.");
-            } catch (Exception $exception) {
-                Log::error($exception->getMessage());
-                return back()->with('error', 'An error occured while sending invitation, please try again.');
-            }
+            $this->client->request('POST', $url);
+
+            return back()->with('success', "An invitation to your mail to join {$this->teamName} workspace.");
+        } catch (Exception $exception) {
+            Log::error($exception->getMessage());
+            return back()->with('error', 'An error occured while sending invitation, please try again.');
         }
     }
 
