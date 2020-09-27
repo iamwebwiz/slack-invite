@@ -10,8 +10,8 @@ use Illuminate\Support\Facades\Validator;
 
 class SlackController extends Controller
 {
-    protected $client;
-    protected $teamName;
+    private $client;
+    private $teamName;
 
     public function __construct()
     {
