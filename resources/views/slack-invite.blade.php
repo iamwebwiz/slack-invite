@@ -21,34 +21,34 @@
             }
         </style>
     </head>
-    <body class="site__bg">
+    <body>
+        <div class="w-screen h-screen flex justify-center items-center bg-gray-200">
+            <div class="flex flex-col">
+                <h2 class="my-5 text-3xl text-purple-700">Join {{ ucwords(strtolower($teamName)) }} on Slack</h2>
 
-        <div class="container text-center">
+                <form action="{{ route('send_invite') }}" method="post">
+                    {{ csrf_field() }}
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-control input-lg" placeholder="Email Address">
+                    </div>
+                    <button type="submit" class="btn btn-success btn-lg submit__btn">Request to Join Team</button>
+                </form>
 
-            <h2>Join {{ ucwords(strtolower($teamName)) }} on Slack</h2>
+                <div class="row top__margin">
 
-            <div class="row top__margin">
-
-                <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12">
-                    @if (session('success'))
-                        <div class="alert alert-success fade in">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                            <i class="fas fa-check"></i> {{ session('success') }}
-                        </div>
-                    @elseif (session('error'))
-                        <div class="alert alert-danger fade in">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                            <i class="fas fa-warning"></i> {{ session('error') }}
-                        </div>
-                    @endif
-
-                    <form action="{{ route('send_invite') }}" method="post">
-                        {{ csrf_field() }}
-                        <div class="form-group">
-                            <input type="email" name="email" class="form-control input-lg" placeholder="Email Address">
-                        </div>
-                        <button type="submit" class="btn btn-success btn-lg submit__btn">Request to Join Team</button>
-                    </form>
+                    <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12">
+                        @if (session('success'))
+                            <div class="alert alert-success fade in">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <i class="fas fa-check"></i> {{ session('success') }}
+                            </div>
+                        @elseif (session('error'))
+                            <div class="alert alert-danger fade in">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <i class="fas fa-warning"></i> {{ session('error') }}
+                            </div>
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>
