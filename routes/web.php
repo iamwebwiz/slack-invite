@@ -17,5 +17,5 @@ Route::get('/', function () {
     return redirect('/invite');
 });
 
-Route::get('/invite', 'SlackController@slackInvitePage');
-Route::post('/invite', 'SlackController@sendInvitation')->name('send_invite');
+Route::get('invite', 'SlackController@index');
+Route::post('invite', 'SlackController@sendInvitation')->name('send_invite');
