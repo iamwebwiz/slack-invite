@@ -31,13 +31,13 @@
                 <div class="h-1 w-10 bg-purple-700 mb-6 flex self-center"></div>
 
 {{--                @if (session('success'))--}}
-                    <div class="flex flex-row-reverse justify-between mb-5">
-                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                        <p><i class="fas fa-check"></i> {{--{{ session('success') }}--}} Yello!</p>
+                    <div class="flex flex-row-reverse justify-between mb-5 bg-green-600 text-green-100 px-4 py-3 rounded-lg">
+                        <a href="#" class="close" aria-label="close">&times;</a>
+                        <p><i class="fas fa-check mr-2 bg-green-800 p-1 rounded-full"></i> {{--{{ session('success') }}--}} Yay! It worked!</p>
                     </div>
 {{--                @elseif (session('error'))--}}
                     <div class="flex flex-row-reverse justify-between mb-5">
-                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <a href="#" class="close" aria-label="close">&times;</a>
                         <p><i class="fas fa-exclamation-circle"></i> {{--{{ session('error') }}--}} Yello!</p>
                     </div>
 {{--                @endif--}}
