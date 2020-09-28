@@ -39,7 +39,7 @@
                     </div>
 
                     <div class="my-5">
-                        <button class="bg-purple-700 text-purple-100 rounded-lg w-full px-5 py-3 hover:shadow-lg">
+                        <button class="bg-purple-700 text-purple-100 rounded-lg w-full px-5 py-3 hover:shadow-lg hover:bg-purple-800 transition duration-300">
                             Request to Join Team
                         </button>
                     </div>
