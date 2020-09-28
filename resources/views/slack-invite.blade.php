@@ -30,17 +30,9 @@
                 
                 <div class="h-3 w-10 bg-purple-700 mb-6 flex self-center rounded-full"></div>
 
-                @if (session('success'))
-                    <div class="flex flex-row-reverse justify-between mb-5 bg-green-600 text-green-100 px-4 py-3 rounded-lg">
-                        <a href="#" class="close" aria-label="close">&times;</a>
-                        <p><i class="fas fa-check mr-2 bg-green-800 p-1 rounded-full"></i> {{ session('success') }}</p>
-                    </div>
-                @elseif (session('error'))
-                    <div class="flex flex-row-reverse justify-between mb-5 bg-red-600 text-red-100 px-4 py-3 rounded-lg">
-                        <a href="#" class="close" aria-label="close">&times;</a>
-                        <p><i class="fas fa-exclamation-circle mr-2 bg-red-800 p-1 rounded-full"></i> {{ session('error') }}</p>
-                    </div>
-                @endif
+                @component('components.alert', ['success' => session('success'), 'error' => session('error')])
+                    {{ session('success') ?: session('error') }}
+                @endcomponent
 
                 <form action="{{ route('send_invite') }}" method="post">
                     {{ csrf_field() }}
