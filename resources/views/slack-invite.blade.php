@@ -30,6 +30,18 @@
                 
                 <div class="h-1 w-10 bg-purple-700 mb-6 flex self-center"></div>
 
+{{--                @if (session('success'))--}}
+                    <div class="flex flex-row-reverse justify-between mb-5">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <p><i class="fas fa-check"></i> {{--{{ session('success') }}--}} Yello!</p>
+                    </div>
+{{--                @elseif (session('error'))--}}
+                    <div class="flex flex-row-reverse justify-between mb-5">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <p><i class="fas fa-exclamation-circle"></i> {{--{{ session('error') }}--}} Yello!</p>
+                    </div>
+{{--                @endif--}}
+
                 <form action="{{ route('send_invite') }}" method="post">
                     {{ csrf_field() }}
                     <div class="mb-5">
@@ -44,23 +56,6 @@
                         </button>
                     </div>
                 </form>
-
-                <div class="row top__margin">
-
-                    <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12">
-                        @if (session('success'))
-                            <div class="alert alert-success fade in">
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                <i class="fas fa-check"></i> {{ session('success') }}
-                            </div>
-                        @elseif (session('error'))
-                            <div class="alert alert-danger fade in">
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                <i class="fas fa-warning"></i> {{ session('error') }}
-                            </div>
-                        @endif
-                    </div>
-                </div>
             </div>
         </div>
 
