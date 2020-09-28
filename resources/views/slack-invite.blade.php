@@ -28,25 +28,25 @@
                     Join {{ ucwords(strtolower($teamName)) }} on Slack
                 </h2>
                 
-                <div class="h-1 w-10 bg-purple-700 mb-6 flex self-center"></div>
+                <div class="h-3 w-10 bg-purple-700 mb-6 flex self-center rounded-full"></div>
 
-{{--                @if (session('success'))--}}
+                @if (session('success'))
                     <div class="flex flex-row-reverse justify-between mb-5 bg-green-600 text-green-100 px-4 py-3 rounded-lg">
                         <a href="#" class="close" aria-label="close">&times;</a>
-                        <p><i class="fas fa-check mr-2 bg-green-800 p-1 rounded-full"></i> {{--{{ session('success') }}--}} Yay! It worked!</p>
+                        <p><i class="fas fa-check mr-2 bg-green-800 p-1 rounded-full"></i> {{ session('success') }}</p>
                     </div>
-{{--                @elseif (session('error'))--}}
-                    <div class="flex flex-row-reverse justify-between mb-5">
+                @elseif (session('error'))
+                    <div class="flex flex-row-reverse justify-between mb-5 bg-red-600 text-red-100 px-4 py-3 rounded-lg">
                         <a href="#" class="close" aria-label="close">&times;</a>
-                        <p><i class="fas fa-exclamation-circle"></i> {{--{{ session('error') }}--}} Yello!</p>
+                        <p><i class="fas fa-exclamation-circle mr-2 bg-red-800 p-1 rounded-full"></i> {{ session('error') }}</p>
                     </div>
-{{--                @endif--}}
+                @endif
 
                 <form action="{{ route('send_invite') }}" method="post">
                     {{ csrf_field() }}
                     <div class="mb-5">
                         <label>
-                            <input type="email" name="email" placeholder="Email Address" class="border border-purple-500 w-full px-4 py-3 rounded-md text-purple-700">
+                            <input type="email" name="email" placeholder="Email Address" class="border border-purple-500 w-full px-4 py-3 rounded-md text-purple-700 focus:outline-none">
                         </label>
                     </div>
 
